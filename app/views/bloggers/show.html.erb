@@ -1,0 +1,47 @@
+
+<h5><%= link_to 'Return to list of bloggers', bloggers_path %></h5>
+
+<h1>Bloggers Profile Page</h1>
+
+
+<p><%= "Total likes on #{@blogger.name} posts: #{@total_likes}" %></p>
+
+<br>
+
+<% if @most_liked_post %>
+  <p>Most liked post:</p>
+  <%= link_to @most_liked_post.title , post_path(@most_liked_post) %>
+<% end %>
+
+<br><br>
+
+<p>Top 5 most popular destinations:</p>
+<ul>
+  <% @most_popular_destinations.each do |destination| %>
+    <li>
+      <%= " #{destination.name}, posts: #{destination.posts.count}" %>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<p><%= "#{@blogger.name} posts: "%></p>
+
+<% @posts.each do |post| %>
+
+<p style="font-weight: bold">Post Title:</p>
+<%= post.title %>
+<br>
+<p style="font-weight: bold">Post Content:</p>
+<%= post.content %>
+<br>
+<p style="font-weight: bold">Number Post Likes:</p>
+<%= post.likes %>
+<hr>
+
+<% end %>
+
+
+
+

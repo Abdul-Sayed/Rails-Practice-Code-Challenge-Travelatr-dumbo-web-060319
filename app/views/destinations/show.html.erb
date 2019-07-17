@@ -1,0 +1,38 @@
+<h5><%= link_to 'Return to list of destinations', destinations_path %></h5>
+
+
+<h1>Destination Details</h1>
+
+<h3><%= @destination.name %> 5 most recent posts</h3>
+
+<ul>
+  <% @destination.recent_five_posts.each do |post| %>
+    <li>
+      <%= post.title %> <%= "Created at:" %> <%= post.created_at %>
+    </li>
+  <% end %>
+</ul>
+
+
+ 
+<h3><%= @destination.name %> post with most likes</h3>
+<% if @destination.most_liked_post %>
+  <%= link_to 'Most Liked Post', post_path(@destination.most_liked_post) %>
+<% end %>
+
+
+
+<h3>Average age of all bloggers who wrote about <%= @destination.name %></h3>
+<% if @destination.avg_blogger_age %>
+  <p><%= @destination.avg_blogger_age %></p>
+<% end %>
+
+
+
+
+
+
+
+
+
+

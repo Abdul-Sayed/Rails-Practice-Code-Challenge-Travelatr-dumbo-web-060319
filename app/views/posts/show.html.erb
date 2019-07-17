@@ -1,0 +1,19 @@
+<h5><%= link_to 'Return to Posts List', posts_path %></h5>
+
+<h1>Post Details</h1>
+
+<p>Title: <%=@post.title%></p>
+<p>Likes: <%=@post.likes%></p>
+<p>Content: <%=@post.content%></p>
+
+<p>Blogger: <%= link_to @blogger.name, blogger_path(@blogger) %> </p>
+
+<p>Travel Destination: <%= link_to @destination.name, destination_path(@destination) %> </p>
+
+<%# How can I make this button invoke @post.upvote without using javascript ???%>
+<%= button_to 'Like', like_path(@post)%>
+
+
+<br><br>
+
+<%= link_to 'Edit this post', edit_post_path(@post) %>
